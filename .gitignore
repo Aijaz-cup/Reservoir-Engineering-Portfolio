@@ -27,3 +27,8 @@ Thumbs.db
 *.zip
 *.rar
 *.7z
+
+
+# Raw reservoir datasets
+01_decline_curve_analysis/data/raw/*.xlsx
+01_decline_curve_analysis/data/raw/*.xls
