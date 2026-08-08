@@ -1,0 +1,6 @@
+Variable,Matched Rows,Numeric Mismatches,Null/Zero Representation Differences,Unexpected Missingness Differences,Maximum Absolute Difference
+On Stream,515,0,0,0,1.1368683772161603e-13
+Oil,311,0,0,0,2.9103830456733704e-11
+Gas,311,0,0,0,7.450580596923828e-09
+Water,311,0,0,0,5.820766091346741e-11
+WI,200,0,1,0,4.656612873077393e-10
