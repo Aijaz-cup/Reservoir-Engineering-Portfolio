@@ -1,0 +1,3 @@
+Case,Observations,qi Sm3/d,qi Std Error,Di 1/month,Di Std Error,Effective Monthly Decline,Effective Annual Decline,Half-Life Months,RMSE Sm3/d,MAE Sm3/d,MAPE %,R2,Di Change vs Baseline %,qi Change vs Baseline %
+All selected months,35,908.06937,11.53295,0.0561,0.00119,0.05456,0.48993,12.35561,23.49444,17.08289,4.76462,0.98928,0.0,0.0
+Uptime >= 0.90,27,922.42136,14.33081,0.05644,0.0012,0.05488,0.49202,12.2806,20.21763,14.24701,4.48946,0.98988,0.61081,1.58049

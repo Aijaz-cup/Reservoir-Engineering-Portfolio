@@ -1,0 +1,2 @@
+Wellbore,Fit Start,Fit End,Months,Initial Oil Rate Sm3/d,Final Oil Rate Sm3/d,Oil Rate Reduction Fraction,Initial Water Cut,Final Water Cut,Median Uptime Fraction,Minimum Uptime Fraction,Median Choke Size,Minimum Choke Size,Maximum Choke Size,Declining Month Fraction,Log-Rate Linear R2
+15/9-F-14,2013-05-01,2016-03-01,35,905.0807,122.13,0.8651,0.7984,0.9632,0.984,0.8062,96.9807,90.1774,99.9329,0.8235,0.9897

@@ -1,0 +1,2 @@
+Wellbore,Model,Fit Start,Fit End,Observations,qi Sm3/d,qi Std Error,qi 95% CI Low,qi 95% CI High,D 1/month,D Std Error,D 95% CI Low,D 95% CI High,Effective Monthly Decline,Effective Annual Decline,Half-Life Months,RMSE Sm3/d,MAE Sm3/d,MAPE %,R2
+15/9-F-14,Exponential,2013-05-01,2016-03-01,35,908.06937,11.53295,884.60539,931.53334,0.0561,0.00119,0.05368,0.05852,0.05456,0.48993,12.35561,23.49444,17.08289,4.76462,0.98928
