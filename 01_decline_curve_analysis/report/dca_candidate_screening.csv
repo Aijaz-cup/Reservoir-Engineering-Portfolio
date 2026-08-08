@@ -1,0 +1,4 @@
+Wellbore,First Production,Last Production,Producing Months,Post-Peak Producing Months,Peak Oil Rate Sm3/d,Peak Oil Rate Date,First Oil Rate Sm3/d,Last Oil Rate Sm3/d,Last-to-Peak Rate Fraction,Cumulative Oil Sm3,Cumulative Water Sm3,Median Uptime Fraction,Minimum Uptime Fraction,Initial Water Cut,Final Water Cut,Maximum Water Cut,Initial GOR Sm3/Sm3,Final GOR Sm3/Sm3
+15/9-F-12,2008-02-01,2016-08-01,102,92,5369.02,2008-12-01,2897.47,121.06,0.0225,4579609.55,6833320.37,0.9622,0.0375,0.0083,0.8835,0.9672,143.98,161.27
+15/9-F-14,2008-07-01,2016-07-01,97,94,4616.31,2008-10-01,2812.9,105.72,0.0229,3942233.39,7121249.74,0.9742,0.0428,0.0025,0.9662,0.9673,147.0,162.25
+15/9-F-11,2013-07-01,2016-09-01,39,18,1818.53,2015-04-01,833.85,526.72,0.2896,1147849.1,1090806.27,0.9832,0.1518,0.0,0.8446,0.8575,150.52,169.45

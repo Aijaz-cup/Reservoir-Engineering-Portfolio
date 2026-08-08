@@ -36,3 +36,21 @@ The final analysis will use publicly available production data from the Volve fi
 ## Tools
 
 Python | pandas | NumPy | SciPy | Matplotlib | Git
+
+## Production Surveillance
+
+Production histories were evaluated using producing-day oil and water rates, water cut, gas-oil ratio, and monthly uptime.
+
+### Candidate Producer Comparison
+
+![Volve DCA candidate oil-rate comparison](figures/dca_candidate_oil_rate_comparison.png)
+
+Among the evaluated producers, `15/9-F-14` provides the longest sustained post-peak decline behavior with relatively consistent production trends.
+
+### 15/9-F-14 Production Surveillance
+
+![15/9-F-14 production surveillance](figures/15_9_F_14_well_surveillance.png)
+
+The `15/9-F-14` history shows a progressive decline in oil rate accompanied by increasing water cut. Operational uptime variations are considered when selecting the decline-curve fitting interval.
+
+Additional surveillance results for `15/9-F-12` and `15/9-F-11` are available in the `figures` directory.

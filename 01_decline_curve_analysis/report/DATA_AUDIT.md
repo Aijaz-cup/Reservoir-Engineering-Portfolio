@@ -53,6 +53,6 @@ Quality-control review performed before decline-curve analysis. The raw Equinor 
 - A small number of on-stream records exceed `24 x calendar days` by no more than one hour. These source values are retained, not corrected, because they reconcile with the daily sheet. The workflow does not impose an unverified timezone correction.
 - Zero-versus-null representation differences are documented separately from numerical mismatches so missing data are not silently converted to zero.
 
-## Audit Status
+## Data Integrity Summary
 
-**PASS - data are suitable for the next well-surveillance and DCA-screening stage.**
+The source-production records passed the implemented schema, unit, duplication, range, and daily-to-monthly reconciliation checks. Documented source-data exceptions are retained without manual alteration.

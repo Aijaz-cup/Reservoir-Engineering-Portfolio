@@ -717,7 +717,7 @@ def write_markdown_audit(
     crosscheck: pd.DataFrame,
     screening: pd.DataFrame,
 ) -> Path:
-    """Write a concise interview-facing Markdown audit summary."""
+    """Write a concise technical Markdown audit summary."""
 
     output_path = REPORT_DIR / "DATA_AUDIT.md"
 
@@ -865,11 +865,13 @@ def write_markdown_audit(
             "silently converted to zero."
         ),
         "",
-        "## Audit Status",
+        "## Data Integrity Summary",
         "",
         (
-            "**PASS - data are suitable for the next well-surveillance and "
-            "DCA-screening stage.**"
+            "The source-production records passed the implemented schema, "
+            "unit, duplication, range, and daily-to-monthly reconciliation "
+            "checks. Documented source-data exceptions are retained without "
+            "manual alteration."
         ),
         "",
     ]
