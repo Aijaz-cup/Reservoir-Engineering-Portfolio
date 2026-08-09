@@ -320,9 +320,9 @@ Exponential, harmonic, and hyperbolic Arps models were evaluated using chronolog
 
 The hyperbolic solution converged to approximately \(b=0\), while the harmonic model showed substantially poorer validation performance. The exponential model was retained.
 
-\[
+$$
 q_o(t)=908.07\,e^{-0.05610t}
-\]
+$$
 
 with \(t\) in months from May 2013.
 
