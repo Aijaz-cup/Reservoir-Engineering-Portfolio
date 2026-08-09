@@ -1,0 +1,13 @@
+Parameter,Value,Unit
+Initial pressure,300.0,bar
+Surface oil rate,500.0,Sm3/d
+Formation volume factor,1.2,rm3/Sm3
+Oil viscosity,1.0,cP
+Permeability,100.0,mD
+Net thickness,20.0,m
+Porosity,0.2,fraction
+Total compressibility,1e-09,1/Pa
+Wellbore radius,0.1,m
+Skin,3.0,dimensionless
+Production time,240.0,h
+Buildup duration,72.0,h

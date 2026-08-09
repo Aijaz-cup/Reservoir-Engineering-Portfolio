@@ -1,0 +1,5 @@
+Quantity,True Value,Estimated Value,Error %,Unit
+Permeability from derivative plateau,100.000000,100.461760,0.461760,mD
+Permeability from Horner slope,100.000000,99.926166,-0.073834,mD
+Initial pressure from Horner intercept,300.000000,300.006600,0.002200,bar
+Skin,3.000000,2.991842,-0.271933,dimensionless
