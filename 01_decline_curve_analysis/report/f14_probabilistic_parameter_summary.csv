@@ -1,0 +1,5 @@
+Quantity,Deterministic,Mean,Std Dev,10th Percentile,50th Percentile,90th Percentile,Unit
+Initial rate qi,908.069370,908.213537,12.702940,893.423308,907.250923,924.998846,Sm3/d
+Nominal decline D,0.056100,0.056121,0.001305,0.054470,0.056104,0.057777,1/month
+Effective annual decline,0.489926,0.489993,0.007986,0.479851,0.489952,0.500090,fraction/year
+Forecast-start rate,127.462318,127.462425,4.701954,121.553298,127.255596,133.504923,Sm3/d

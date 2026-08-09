@@ -1,0 +1,11 @@
+Metric,Value
+Requested bootstrap realizations,5000.000000
+Accepted bootstrap realizations,5000.000000
+Bootstrap fitting attempts,5000.000000
+Acceptance fraction,1.000000
+Residual block length months,3.000000
+Random seed,20260810.000000
+Residual mean Sm3/d,-0.538982
+Residual std Sm3/d,23.831172
+Residual lag-1 correlation,0.168534
+Bootstrap correlation qi versus D,0.726145

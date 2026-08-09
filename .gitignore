@@ -42,3 +42,6 @@ Thumbs.db
 # Pressure-transient processed datasets
 02_pressure_transient_analysis/data/processed/*
 !02_pressure_transient_analysis/data/processed/README.md
+
+# Reproducible Monte Carlo realization-level output
+01_decline_curve_analysis/report/f14_probabilistic_bootstrap_samples.csv

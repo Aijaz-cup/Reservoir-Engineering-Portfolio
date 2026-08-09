@@ -1,0 +1,5 @@
+Terminal Rate Sm3/d,Deterministic Forecast Months,Forecast Months P90,Forecast Months P50,Forecast Months P10,Deterministic Forecast Oil Sm3,Forecast Oil P90 Sm3,Forecast Oil P50 Sm3,Forecast Oil P10 Sm3,Probability Convention
+100.000000,4.325322,3.385103,4.292973,5.295442,14899.898368,11377.650323,14776.750213,18681.391022,"Mathematical percentiles: 10th=low numerical outcome, 90th=high numerical outcome"
+75.000000,9.453345,8.363691,9.425179,10.571970,28463.846675,24539.740667,28347.541049,32635.546051,"Mathematical percentiles: 10th=low numerical outcome, 90th=high numerical outcome"
+50.000000,16.680887,15.385195,16.654931,18.008896,42027.794982,37711.744190,41924.521279,46601.376494,"Mathematical percentiles: 10th=low numerical outcome, 90th=high numerical outcome"
+25.000000,29.036452,27.394587,29.002453,30.736012,55591.743288,50899.873659,55488.567511,60547.310143,"Mathematical percentiles: 10th=low numerical outcome, 90th=high numerical outcome"
