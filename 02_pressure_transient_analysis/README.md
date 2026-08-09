@@ -35,25 +35,27 @@ The analysis will include:
 
 ## Primary Diagnostic Relationships
 
-Pressure change:
+Pressure change is defined as:
 
-\[
-\Delta p = p_{\mathrm{reference}} - p(t)
-\]
+$$
+\Delta p(t) = p_{\mathrm{reference}} - p(t)
+$$
 
-For buildup analysis:
+For a pressure-buildup response following shut-in:
 
-\[
-\Delta p = p_{ws}(t)-p_{wf}
-\]
+$$
+\Delta p(t) = p_{\mathrm{ws}}(t) - p_{\mathrm{wf}}
+$$
 
-The logarithmic pressure derivative is evaluated as:
+where $p_{\mathrm{ws}}(t)$ is the shut-in well pressure at elapsed time $t$, and $p_{\mathrm{wf}}$ is the flowing pressure immediately before shut-in.
 
-\[
+The logarithmic pressure derivative is:
+
+$$
 \frac{d(\Delta p)}{d\ln t}
-\]
+$$
 
-Radial flow is identified from an approximately horizontal pressure-derivative response over a sustained time interval.
+An approximately horizontal pressure-derivative response over a sustained time interval is characteristic of infinite-acting radial flow.
 
 ## Data Requirements
 
@@ -111,7 +113,25 @@ Residual analysis is retained separately from measurement-quality classification
 
 The FPWD pretests used closely comparable withdrawal volumes and average withdrawal rates. Lower-mobility intervals generally required larger pressure drawdown, while high-mobility intervals produced small-amplitude pressure responses.
 
-For vendor-qualified tests with drawdown amplitudes of at least 1 bar, the empirical response index \(q_{\mathrm{avg}}/\Delta P\) shows a strong log-log association with the source-interpreted mobility.
+Formation mobility is defined as:
+
+$$
+\lambda = \frac{k}{\mu}
+$$
+
+where $k$ is formation permeability and $\mu$ is fluid viscosity.
+
+An empirical pretest response index is defined as:
+
+$$
+I_{\mathrm{response}}
+=
+\frac{q_{\mathrm{avg}}}{\Delta p}
+$$
+
+where $q_{\mathrm{avg}}$ is the average pretest withdrawal rate and $\Delta p$ is the observed drawdown magnitude.
+
+For vendor-qualified tests with drawdown amplitudes of at least 1 bar, $I_{\mathrm{response}}$ shows a strong log-log association with the source-interpreted mobility.
 
 The empirical response index is used as a pressure-response diagnostic and is not treated as an independent permeability or mobility estimate.
 
@@ -121,15 +141,18 @@ The accompanying FPWD interpretation identifies Test 10 as the non-quality press
 
 ### Pressure Reference
 
-The LAS `pPFOR` pressure values and the report formation-pressure values use a consistent numerical reference offset. Report-referenced pressure in bar is reproduced by
+The LAS `pPFOR` values are stored in psi, while the accompanying FPWD report presents formation pressure in bar. Comparison of the source values established a consistent numerical reference offset.
 
-\[
+The report-referenced pressure is reproduced by:
+
+$$
 P_{\mathrm{report,bar}}
 =
 P_{\mathrm{pPFOR,psi}}
-\times 0.0689475729
+\times
+0.0689475729
 +
 1.01325
-\]
+$$
 
-Both the original source value and the reconciled pressure reference are retained in the reproducible workflow.
+The original LAS value and the reconciled pressure reference are retained separately throughout the reproducible workflow.
