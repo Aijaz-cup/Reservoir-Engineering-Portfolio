@@ -1,0 +1,4 @@
+Pressure Basis,Stations,Gradient bar/m,Gradient bar/100m,Gradient psi/ft,Equivalent Density kg/m3,Intercept bar,R2,p-value,Slope Std Error bar/m
+Source formation pressure - all stations,14,0.070369,7.036919,0.311085,717.566008,84.762621,0.990201,0.0,0.002021
+Source formation pressure - closure-screened,12,0.070757,7.07567,0.312798,721.517522,83.656648,0.989759,0.0,0.002276
+Observed final buildup pressure - closure-screened,12,0.070774,7.077387,0.312874,721.692658,83.594657,0.989748,0.0,0.002278

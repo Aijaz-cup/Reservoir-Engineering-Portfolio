@@ -1,0 +1,59 @@
+Mnemonic,Unit,Description
+TIME,S,time {AS}
+DEPTH,M,Measured depth {AF}
+STATION_NUMBER,,Station number {AF}
+RM_DATE,S,LWDRM 1HZ  Date {AF}
+TFF_TIME,,Time frame time {AF}
+SLDF,BAR,FPWD Set line pressure {AF}
+RLDF,BAR,FPWD Retract line pressure {AF}
+FSAP,BAR,Flow Line strain pressure {AF}
+FSAT,DEGC,Flow Line strain temperature {AF}
+AQAP,BAR,FPWD Quartz Gauge Pressure Raw {AF}
+AQAT,DEGC,FPWD Quartz Gauge temperature {AF}
+ASAP,BAR,Annulus strain pressure {AF}
+ASAT,DEGC,Annulus strain temperature {AF}
+ASA1,BAR,Annulus Strain Channel 0 Average {AF}
+ASA2,BAR,Annulus Strain Channel 1 Average {AF}
+ASA3,BAR,Annulus Strain Channel 2 Average {AF}
+HFV5,V,HV voltage from tst005 {AF}
+HFC5,AMPS,HV voltage from tst005 {AF}
+HEAV,,FPWD Heave {AF}
+CQG1,,FPWD CQG channel 1 {AF}
+CQG2,,FPWD CQG channel 2 {AF}
+CQG3,,FPWD CQG channel 3 {AF}
+CQG4,,FPWD CQG channel 4 {AF}
+FLS1,,FPWD Flow line strain channel 1 {AF}
+FLS2,,FPWD Flow line strain channel 2 {AF}
+FLS3,,FPWD Flow line strain channel 3 {AF}
+ASC1,,FPWD Annulus strain channel 1 {AF}
+ASC2,,FPWD Annulus strain channel 2 {AF}
+ASC3,,FPWD Annulus strain channel 3 {AF}
+SDRF,BAR,FPWD Set line differential raw data {AF}
+RDRF,BAR,FPWD Retract line differential raw data {AF}
+PSTN,,FPWD Motor turns {AF}
+PSMS,RPM,FPWD Motor turns {AF}
+PSPP,C3,FPWD Preset piston position {AF}
+PFTN,,Pretest Motor turns {AF}
+PFMS,RPM,Pretest Motor speed {AF}
+PFPP,C3,FPWD Preset piston position {AF}
+HFTN,,FPWD Motor turns {AF}
+HFMS,RPM,FPWD Motor turns {AF}
+HSTN,,FPWD Motor turns {AF}
+HSMS,RPM,FPWD Motor turns {AF}
+ACQ_SF_UNC,BAR,FPWD Quartz gauge pressure Raw  {AF}
+ACQ_SF,BAR,FPWD Quartz gauge pressure {AF}
+ACQ_SF_TMP,DEGC,FPWD Quartz gauge Temperature {AF}
+FLS_SF_COR,BAR,FPWD Flow line pressure correction {AF}
+FLS_SF,BAR,FPWD Flow line pressure {AF}
+FLS_SF_TMP,DEGC,FPWD Flow line temperature {AF}
+ANS_SF,BAR,FPWD Annular pressure {AF}
+ANS_SF_TMP,DEGC,FPWD Annular temperature {AF}
+ST6F,,FPWD Status {AF}
+PTVOL,C3,Pretest Volume {AF}
+AQAP_F,BAR,FPWD Quartz Gauge pressure filtered {AF}
+FSAP_F,BAR,Flow Line strain pressure filtered {AF}
+ASAP_F,BAR,Annulus strain pressure filtered {AF}
+ACQ_SF_F,BAR,FPWD Quartz gauge pressure filtered {AF}
+FLS_SF_F,BAR,FPWD Flow line pressure filtered {AF}
+ANS_SF_F,BAR,FPWD Annular pressure filtered {AF}
+PRES_SMO,BAR,Smoothed DLL Pressure

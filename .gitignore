@@ -34,3 +34,11 @@ Thumbs.db
 01_decline_curve_analysis/data/raw/*.xls
 01_decline_curve_analysis/data/processed/*.csv
 01_decline_curve_analysis/report/f14_monthly_operating_summary.csv
+
+# Pressure-transient raw datasets
+02_pressure_transient_analysis/data/raw/*
+!02_pressure_transient_analysis/data/raw/README.md
+
+# Pressure-transient processed datasets
+02_pressure_transient_analysis/data/processed/*
+!02_pressure_transient_analysis/data/processed/README.md
