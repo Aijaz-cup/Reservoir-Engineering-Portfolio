@@ -93,15 +93,15 @@ A **5,000-realization moving-block residual bootstrap** is used to propagate the
 For each bootstrap realization, a synthetic production history is generated as
 
 $$
-q_i^{*} = \hat q(t_i) + \varepsilon_i^{*},
+q_i^{\ast} = \hat q(t_i) + \varepsilon_i^{\ast},
 $$
 
-where $\varepsilon_i^{*}$ is a resampled residual.
+where $\varepsilon_i^{\ast}$ is a resampled residual.
 
 The exponential model is then refitted to the synthetic history to obtain a new parameter pair
 
 $$
-\left(q_i^{*},D^{*}\right).
+\left(q_i^{\ast},D^{\ast}\right).
 $$
 
 All 5,000 realizations produced physically admissible positive model parameters and were retained.
