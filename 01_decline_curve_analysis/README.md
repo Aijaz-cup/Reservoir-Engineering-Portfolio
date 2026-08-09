@@ -65,16 +65,13 @@ $$
 The corresponding effective annual decline is
 
 $$
-D_{\mathrm{eff,annual}}
-=
-1-e^{-12D},
+D_{\mathrm{eff,annual}} = 1-e^{-12D},
 $$
 
 which gives
 
 $$
-D_{\mathrm{eff,annual}}
-\approx 48.99\%.
+D_{\mathrm{eff,annual}} \approx 48.99\%.
 $$
 
 ### Residual-bootstrap methodology
@@ -82,19 +79,13 @@ $$
 For each historical observation, the deterministic model prediction is
 
 $$
-\hat q(t_i)
-=
-\hat q_i e^{-\hat D t_i}.
+\hat q(t_i) = \hat q_i e^{-\hat D t_i}.
 $$
 
 The model residual is defined as
 
 $$
-\varepsilon_i
-=
-q_{\mathrm{obs},i}
--
-\hat q(t_i).
+\varepsilon_i = q_{\mathrm{obs},i} - \hat q(t_i).
 $$
 
 A **5,000-realization moving-block residual bootstrap** is used to propagate the observed calibration scatter. Residuals are centred and resampled in three-month blocks so that short-range temporal structure is retained rather than treating every monthly residual as completely independent.
@@ -102,11 +93,7 @@ A **5,000-realization moving-block residual bootstrap** is used to propagate the
 For each bootstrap realization, a synthetic production history is generated as
 
 $$
-q_i^{*}
-=
-\hat q(t_i)
-+
-\varepsilon_i^{*},
+q_i^{*} = \hat q(t_i) + \varepsilon_i^{*},
 $$
 
 where $\varepsilon_i^{*}$ is a resampled residual.
@@ -132,41 +119,25 @@ This positive correlation indicates that realizations with a higher fitted initi
 For a specified technical rate limit $q_{\mathrm{lim}}$, the exponential model reaches the limit at
 
 $$
-t_{\mathrm{lim}}
-=
-\frac{\ln(q_i/q_{\mathrm{lim}})}{D}.
+t_{\mathrm{lim}} = \frac{\ln(q_i/q_{\mathrm{lim}})}{D}.
 $$
 
 If the forecast begins at elapsed time $t_s$, the remaining forecast duration is
 
 $$
-\Delta t_{\mathrm{forecast}}
-=
-t_{\mathrm{lim}}-t_s.
+\Delta t_{\mathrm{forecast}} = t_{\mathrm{lim}}-t_s.
 $$
 
 Incremental forecast oil between the forecast start and the technical rate limit is obtained by integrating the decline curve:
 
 $$
-N_{p,\mathrm{forecast}}
-=
-\bar d_m
-\int_{t_s}^{t_{\mathrm{lim}}}
-q_i e^{-Dt}\,dt,
+N_{p,\mathrm{forecast}} = \bar d_m \int_{t_s}^{t_{\mathrm{lim}}} q_i e^{-Dt}\,dt,
 $$
 
 which gives
 
 $$
-N_{p,\mathrm{forecast}}
-=
-\bar d_m
-\frac{q_i}{D}
-\left(
-e^{-Dt_s}
--
-e^{-Dt_{\mathrm{lim}}}
-\right),
+N_{p,\mathrm{forecast}} = \bar d_m \frac{q_i}{D} \left( e^{-Dt_s} - e^{-Dt_{\mathrm{lim}}} \right),
 $$
 
 where
@@ -179,7 +150,7 @@ is the average number of days per month.
 
 The rate limits used in this study are **technical forecasting thresholds**. They are not economic limits because no oil price, operating-cost, abandonment-cost, or other economic cut-off criterion has been introduced.
 
-### P90, P50 and P10 convention
+### Probabilistic forecast convention: P90, P50 and P10
 
 Forecast uncertainty is reported using the petroleum **probability-of-exceedance convention**.
 
@@ -202,16 +173,12 @@ $$
 Therefore,
 
 $$
-P90=Q_{0.10},
-\qquad
-P50=Q_{0.50},
-\qquad
-P10=Q_{0.90},
+P90=Q_{0.10}, \qquad P50=Q_{0.50}, \qquad P10=Q_{0.90},
 $$
 
 where $Q_p$ is the mathematical $p$-quantile of the bootstrap distribution.
 
-For incremental forecast oil, **P90 is the conservative low case, P50 is the median case, and P10 is the higher forecast case**.
+For incremental forecast oil, **P90 represents the conservative low case, P50 the median case, and P10 the high case**.
 
 These P90/P50/P10 labels refer only to the probabilistic production forecast developed in this analysis. They should not be interpreted as formal reserves classifications.
 
@@ -250,10 +217,7 @@ Realizations with a higher effective annual decline reach the technical rate lim
 At the 50 Sm³/d technical rate limit, the resulting P90–P10 range is approximately
 
 $$
-37.7
-\text{ to }
-46.6
-\times10^3\ \text{Sm}^3,
+37.7 \text{ to } 46.6 \times10^3\ \text{Sm}^3,
 $$
 
 compared with the deterministic estimate of approximately
