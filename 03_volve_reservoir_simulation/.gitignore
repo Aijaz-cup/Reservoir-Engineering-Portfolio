@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Development backups
+*.bak
+*.tmp
+*.before_*
+
+# Large reservoir-simulator outputs
+*.UNRST
+*.FUNRST
+*.EGRID
+*.FEGRID
+*.INIT
+*.FINIT
+*.SMSPEC
+*.UNSMRY
+*.ESMRY
+*.RSSPEC
+*.PRT
+
+# Archives
+*.zip
+*.7z
+*.tar
+*.gz
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+*~
