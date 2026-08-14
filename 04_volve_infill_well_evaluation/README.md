@@ -11,7 +11,8 @@ This project is an independent **early-career Petroleum Engineering study** deve
 
 The purpose was to move beyond classroom equations and simplified examples and practice the complete engineering reasoning chain:
 
-$$
+
+```math
 \text{Theory}
 \rightarrow
 \text{Data}
@@ -23,7 +24,8 @@ $$
 \text{Simulation}
 \rightarrow
 \text{Engineering decision}
-$$
+```
+
 
 The objective is not to present this work as professional field-development authority or as a commercial development study.
 
@@ -59,9 +61,11 @@ The study uses the public **Volve ECLIPSE-format black-oil reservoir model**, OP
 
 The numerical result is therefore:
 
-$$
+
+```math
 \boxed{A>C\gg B}
-$$
+```
+
 
 Candidate A is recommended for **further technical evaluation under the assumptions tested in this study**.
 
@@ -83,7 +87,8 @@ I wanted to understand:
 
 The project therefore focuses on the relationship:
 
-$$
+
+```math
 \boxed{
 \text{Reservoir understanding}
 +
@@ -95,7 +100,8 @@ $$
 +
 \text{engineering judgement}
 }
-$$
+```
+
 
 A major goal was also to understand that a simulator is not a decision-maker.
 
@@ -139,13 +145,15 @@ A late-life reservoir may still contain significant oil after years of productio
 
 However:
 
-$$
+
+```math
 \boxed{
 \text{remaining oil}
 \neq
 \text{automatically producible opportunity}
 }
-$$
+```
+
 
 A region may have high oil saturation but still be unattractive because:
 
@@ -244,19 +252,21 @@ The project applies several basic reservoir-engineering concepts directly to the
 
 For an oil-water-gas system:
 
-$$
+
+```math
 S_o+S_w+S_g=1
-$$
+```
+
 
 where:
 
-- \(S_o\) = oil saturation;
-- \(S_w\) = water saturation;
-- \(S_g\) = gas saturation.
+- $S_o$ = oil saturation;
+- $S_w$ = water saturation;
+- $S_g$ = gas saturation.
 
 Late-life oil saturation helps identify where oil remains.
 
-However, a cell or small region with high \(S_o\) does not necessarily contain a large development opportunity.
+However, a cell or small region with high $S_o$ does not necessarily contain a large development opportunity.
 
 That leads to the next concept.
 
@@ -266,16 +276,16 @@ That leads to the next concept.
 
 A useful relative screening quantity is:
 
-$$
-\text{Oil-filled pore-volume screening metric}
-=
-\sum_i PV_iS_{o,i}
-$$
+
+```math
+M_{\mathrm{oil}} = \sum_i PV_i S_{o,i}
+```
+
 
 where:
 
-- \(PV_i\) is pore volume in cell \(i\);
-- \(S_{o,i}\) is oil saturation.
+- $PV_i$ is pore volume in cell $i$;
+- $S_{o,i}$ is oil saturation.
 
 This is used in this project as a **relative candidate-screening metric**.
 
@@ -283,7 +293,8 @@ It is not presented as a formal reserve estimate or stock-tank oil calculation.
 
 The concept is important because:
 
-$$
+
+```math
 \boxed{
 \text{high }S_o
 \text{ in a small volume}
@@ -291,7 +302,8 @@ $$
 \text{moderately high }S_o
 \text{ across a much larger useful volume}
 }
-$$
+```
+
 
 depending on reservoir quality and connectivity.
 
@@ -301,21 +313,22 @@ depending on reservoir quality and connectivity.
 
 A simplified Darcy relationship is:
 
-$$
+
+```math
 q
 \propto
-\frac{kA}{\mu}
-\frac{\Delta P}{L}
-$$
+\frac{kA\Delta P}{\mu L}
+```
+
 
 where:
 
-- \(q\) = flow rate;
-- \(k\) = permeability;
-- \(A\) = flow area;
-- \(\mu\) = viscosity;
-- \(\Delta P\) = pressure difference;
-- \(L\) = characteristic flow length.
+- $q$ = flow rate;
+- $k$ = permeability;
+- $A$ = flow area;
+- $\mu$ = viscosity;
+- $\Delta P$ = pressure difference;
+- $L$ = characteristic flow length.
 
 This explains why a high-oil-saturation location with poor permeability can perform worse than a more permeable target.
 
@@ -323,18 +336,20 @@ This explains why a high-oil-saturation location with poor permeability can perf
 
 ## 6.4 Phase mobility
 
-For phase \(\alpha\):
+For phase $\alpha$:
 
-$$
+
+```math
 \lambda_\alpha
 =
-\frac{k_{r\alpha}}{\mu_\alpha}
-$$
+\frac{k_{r,\alpha}}{\mu_\alpha}
+```
+
 
 where:
 
-- \(k_{r\alpha}\) = relative permeability;
-- \(\mu_\alpha\) = phase viscosity.
+- $k_{r,\alpha}$ = relative permeability;
+- $\mu_\alpha$ = phase viscosity.
 
 The relative mobility of oil and water helps determine which phase preferentially flows toward the well.
 
@@ -346,16 +361,18 @@ This becomes particularly important in historically water-swept regions.
 
 Water cut is:
 
-$$
+
+```math
 f_w
 =
 \frac{q_w}{q_o+q_w}
-$$
+```
+
 
 where:
 
-- \(q_w\) = water production rate;
-- \(q_o\) = oil production rate.
+- $q_w$ = water production rate;
+- $q_o$ = oil production rate.
 
 A candidate can contain remaining oil and still be technically unattractive if its production is overwhelmingly water dominated.
 
@@ -367,22 +384,24 @@ Candidate B later provides a clear example of this.
 
 A simple well-production concept is:
 
-$$
-\Delta P
-=
-P_r-P_{wf}
-$$
+
+```math
+\Delta P = P_r - P_{wf}
+```
+
 
 where:
 
-- \(P_r\) = reservoir pressure;
-- \(P_{wf}\) = flowing bottom-hole pressure.
+- $P_r$ = reservoir pressure;
+- $P_{wf}$ = flowing bottom-hole pressure.
 
 All final candidate forecasts use the same screening control:
 
-$$
-P_{wf}=300\text{ bar}
-$$
+
+```math
+P_{wf}=300\ \mathrm{bar}
+```
+
 
 Using the same BHP constraint provides a consistent basis for comparing candidate behavior.
 
@@ -392,17 +411,17 @@ Using the same BHP constraint provides a consistent basis for comparing candidat
 
 Water-saturation change was used as a simple indicator of previous water invasion:
 
-$$
-\Delta S_w
-=
-S_{w,\mathrm{late}}
--
+
+```math
+\Delta S_w =
+S_{w,\mathrm{late}} -
 S_{w,\mathrm{initial}}
-$$
+```
 
-A strongly positive \(\Delta S_w\) indicates that the region has experienced greater water invasion.
 
-This is useful because late-life \(S_o\) alone does not reveal the complete sweep history.
+A strongly positive $\Delta S_w$ indicates that the region has experienced greater water invasion.
+
+This is useful because late-life $S_o$ alone does not reveal the complete sweep history.
 
 ---
 
@@ -410,17 +429,20 @@ This is useful because late-life \(S_o\) alone does not reveal the complete swee
 
 The central screening principle developed in this project is:
 
-$$
+
+```math
 \boxed{
 \text{Infill quality}
 \neq
 f(S_o)\text{ only}
 }
-$$
+```
+
 
 Instead, an opportunity should be interpreted using multiple variables:
 
-$$
+
+```math
 \boxed{
 PV,\;
 S_o,\;
@@ -432,7 +454,8 @@ k_r,\;
 \text{well spacing},\;
 \text{completion design}
 }
-$$
+```
+
 
 The remainder of the project tests this idea using the Volve reservoir model.
 
@@ -464,12 +487,14 @@ The analysis therefore used both:
 
 Examples:
 
-\[
+
+```math
 k,\quad
 \phi,\quad
 PV,\quad
 \text{fault geometry}
-\]
+```
+
 
 and:
 
@@ -477,13 +502,15 @@ and:
 
 Examples:
 
-\[
+
+```math
 P(t),\quad
 S_w(t),\quad
 S_o(t),\quad
 q_o(t),\quad
 q_w(t)
-\]
+```
+
 
 The purpose was to combine them rather than make a development decision from one property alone.
 
@@ -509,23 +536,29 @@ These wells were important because some initially attractive candidate locations
 
 For example, an earlier target around:
 
-\[
+
+```math
 (I,J)=(68,23)
-\]
+```
+
 
 was only approximately:
 
-\[
+
+```math
 1.41
-\]
+```
+
 
 grid-index cells from an existing P-F-10 completion.
 
 Another initially considered location near:
 
-\[
+
+```math
 (I,J)=(73,31)
-\]
+```
+
 
 was found to be traversed by the P-F-10 trajectory.
 
@@ -533,7 +566,8 @@ Those targets were therefore not retained as independent infill opportunities.
 
 This demonstrates an important well-placement principle:
 
-\[
+
+```math
 \boxed{
 \text{Remaining oil map}
 +
@@ -541,7 +575,8 @@ This demonstrates an important well-placement principle:
 \rightarrow
 \text{more realistic candidate screening}
 }
-\]
+```
+
 
 The spacing values used during this stage are **grid-index distances**, not physical metre-scale distances.
 
@@ -601,17 +636,19 @@ Some reservoir regions contain very high permeability, while others are much les
 
 This matters because:
 
-\[
+
+```math
 q
 \propto
 k
-\]
+```
+
 
 all else being equal in the simplified Darcy relationship.
 
 Therefore:
 
-> A high-\(S_o\) target located in poor-quality rock may be less attractive than a slightly lower-saturation target located in highly permeable rock.
+> A high-$S_o$ target located in poor-quality rock may be less attractive than a slightly lower-saturation target located in highly permeable rock.
 
 This becomes important later when comparing Candidates A and C.
 
@@ -648,13 +685,13 @@ Water-saturation change was used to identify regions affected by historical wate
 
 The main diagnostic was:
 
-\[
-\Delta S_w
-=
-S_{w,\mathrm{late}}
--
+
+```math
+\Delta S_w =
+S_{w,\mathrm{late}} -
 S_{w,\mathrm{initial}}
-\]
+```
+
 
 ![Historical water sweep and existing wells](figures/final/04_historical_water_sweep_existing_wells.png)
 
@@ -664,9 +701,11 @@ The figure connects dynamic sweep behavior directly with the existing well syste
 
 Regions with large positive:
 
-\[
+
+```math
 \Delta S_w
-\]
+```
+
 
 have experienced stronger historical water invasion.
 
@@ -674,22 +713,26 @@ This is important because a late-life location may still contain some oil but al
 
 Therefore the project did not treat:
 
-\[
+
+```math
 S_o
-\]
+```
+
 
 and:
 
-\[
+
+```math
 \Delta S_w
-\]
+```
+
 
 as interchangeable quantities.
 
 They answer different engineering questions:
 
-- \(S_o\): how much oil saturation remains?
-- \(\Delta S_w\): how strongly has the location been invaded by water over time?
+- $S_o$: how much oil saturation remains?
+- $\Delta S_w$: how strongly has the location been invaded by water over time?
 
 Both are useful for screening.
 
@@ -711,13 +754,15 @@ However, this figure was intentionally **not used as a drilling-target map by it
 
 The key lesson is:
 
-\[
+
+```math
 \boxed{
 S_o\text{ map}
 \neq
 \text{development decision}
 }
-\]
+```
+
 
 A high-saturation region still needs to be checked for:
 
@@ -743,7 +788,8 @@ Instead, candidate locations were evaluated using several screening indicators.
 
 The primary screening factors were:
 
-\[
+
+```math
 \boxed{
 S_o,\;
 PV S_o,\;
@@ -753,7 +799,8 @@ P,\;
 \text{well spacing},\;
 \text{completion quality}
 }
-\]
+```
+
 
 Several locations were evaluated and screened out before the final three candidates were selected for forecast evaluation.
 
@@ -765,7 +812,7 @@ The broader candidate-screening stage compared properties through the available 
 
 Important examples included:
 
-| Location | Nearest existing well/completion | Approx. grid-index spacing | Column oil-filled pore-volume screening metric | Weighted \(S_o\) | Weighted \(\Delta S_w\) | Median PERMX |
+| Location | Nearest existing well/completion | Approx. grid-index spacing | Column oil-filled pore-volume screening metric | Weighted $S_o$ | Weighted $\Delta S_w$ | Median PERMX |
 |---|---|---:|---:|---:|---:|---:|
 | ALT_70_21 | P-F-10 / I-F-4 | 4.24 | 18,536 | 0.494 | 0.352 | 1,310 mD |
 | ALT_66_32 | P-F-10 | 5.00 | 10,176 | 0.346 | 0.479 | 804 mD |
@@ -787,15 +834,19 @@ This location contains very high remaining oil saturation but much less total oi
 
 This provides an important comparison:
 
-\[
+
+```math
 S_{o,C}>S_{o,A}
-\]
+```
+
 
 does **not** automatically imply:
 
-\[
+
+```math
 \text{Opportunity}_C>\text{Opportunity}_A
-\]
+```
+
 
 because the useful reservoir volume and permeability also differ strongly.
 
@@ -807,57 +858,75 @@ After screening and well-spacing assessment, three candidates were selected for 
 
 ### Candidate A
 
-\[
+
+```math
 (I,J)=(70,21)
-\]
+```
+
 
 Source screening location:
 
-\[
+
+```math
 ALT\_70\_21
-\]
+```
+
 
 Approximate nearest existing-completion spacing:
 
-\[
+
+```math
 4.24\text{ grid-index cells}
-\]
+```
+
 
 ### Candidate B
 
-\[
+
+```math
 (I,J)=(66,32)
-\]
+```
+
 
 Source screening location:
 
-\[
+
+```math
 ALT\_66\_32
-\]
+```
+
 
 Approximate spacing:
 
-\[
+
+```math
 5.00\text{ grid-index cells}
-\]
+```
+
 
 ### Candidate C
 
-\[
+
+```math
 (I,J)=(46,27)
-\]
+```
+
 
 Source screening location:
 
-\[
+
+```math
 ALT\_46\_27
-\]
+```
+
 
 Approximate spacing:
 
-\[
+
+```math
 8.06\text{ grid-index cells}
-\]
+```
+
 
 These candidates intentionally represent different reservoir conditions rather than three nearly identical opportunities.
 
@@ -869,13 +938,15 @@ After selecting candidate locations, the next task was to decide which vertical 
 
 This is important because:
 
-\[
+
+```math
 \boxed{
 \text{good location}
 \neq
 \text{all layers should be completed}
 }
-\]
+```
+
 
 A completion can include both attractive oil-bearing layers and poor water-dominated layers.
 
@@ -891,9 +962,11 @@ Candidate A deserves special attention.
 
 An earlier screening table included:
 
-\[
+
+```math
 K1-5
-\]
+```
+
 
 but K5 showed significantly greater late-life water saturation and historical water invasion.
 
@@ -901,11 +974,13 @@ The final forecast therefore deliberately excluded K5.
 
 The actual forecast deck was audited and confirmed:
 
-\[
+
+```math
 \boxed{
 \text{INF-A completion}=K1-4
 }
-\]
+```
+
 
 This refinement demonstrates why completion design should be treated separately from candidate-location selection.
 
@@ -919,8 +994,8 @@ After correcting the Candidate A interval to the actual tested K1–4 completion
 |---|---:|---:|---:|
 | Completion | K1–4 | K59–63 | K59–63 |
 | Oil-filled pore-volume screening metric | **5,085** | 2,109 | 1,472 |
-| Oil-PV-weighted \(S_o\) | **83.1%** | 30.7% | 81.8% |
-| Oil-PV-weighted \(\Delta S_w\) | **+2.3 pp** | **+46.7 pp** | approximately 0 pp |
+| Oil-PV-weighted $S_o$ | **83.1%** | 30.7% | 81.8% |
+| Oil-PV-weighted $\Delta S_w$ | **+2.3 pp** | **+46.7 pp** | approximately 0 pp |
 | Median PERMX | **4,665 mD** | 136 mD | 342 mD |
 | Approx. spacing | 4.24 cells | 5.00 cells | 8.06 cells |
 
@@ -980,7 +1055,8 @@ The pre-forecast expectation was:
 
 Before running the final forecast simulations, the candidate logic could therefore be summarized as:
 
-\[
+
+```math
 \boxed{
 A:
 \text{large oil opportunity}
@@ -989,25 +1065,30 @@ A:
 +
 \text{limited historical water invasion}
 }
-\]
+```
 
-\[
+
+
+```math
 \boxed{
 B:
 \text{substantial historical water-invasion risk}
 +
 \text{unfavorable oil-phase mobility and deliverability}
 }
-\]
+```
 
-\[
+
+
+```math
 \boxed{
 C:
 \text{very high }S_o
 +
 \text{smaller oil-filled pore-volume extent}
 }
-\]
+```
+
 
 The purpose of the forecast stage was then to determine whether these reservoir-engineering expectations were supported by the numerical forecast response.
 
@@ -1064,11 +1145,13 @@ Consequently, the comparison isolates differences associated primarily with:
 
 The forecast interval was:
 
-$$
+
+```math
 1\text{ October 2016}
 \rightarrow
 1\text{ October 2021}
-$$
+```
+
 
 corresponding to a five-year technical screening period.
 
@@ -1080,11 +1163,13 @@ A common forecast duration ensures that cumulative and rate-based performance me
 
 Each candidate producer was operated under the same flowing bottom-hole-pressure constraint:
 
-$$
-P_{wf}=300\text{ bar}
-$$
 
-where \(P_{wf}\) denotes flowing bottom-hole pressure.
+```math
+P_{wf}=300\ \mathrm{bar}
+```
+
+
+where $P_{wf}$ denotes flowing bottom-hole pressure.
 
 Using the same BHP constraint provides a consistent comparison basis.
 
@@ -1126,7 +1211,8 @@ These effects would require a broader field-development study.
 
 The forecast design can be summarized as:
 
-$$
+
+```math
 \boxed{
 \text{common reservoir state}
 +
@@ -1134,17 +1220,20 @@ $$
 +
 \text{common BHP constraint}
 }
-$$
+```
+
 
 while changing:
 
-$$
+
+```math
 \boxed{
 \text{candidate location}
 +
 \text{completion interval}
 }
-$$
+```
+
 
 The resulting differences in oil, water, and pressure response are therefore used as technical screening evidence for the three selected development alternatives.
 
@@ -1194,9 +1283,11 @@ The final forecast cases used the following candidate-well configurations:
 
 The actual Candidate A forecast deck was independently checked and confirmed to contain the completion interval:
 
-$$
+
+```math
 \boxed{K1-4}
-$$
+```
+
 
 This verification was important because an earlier intermediate summary table still contained the superseded K1–5 screening interval.
 
@@ -1206,9 +1297,11 @@ Candidates B and C were evaluated using K59–63.
 
 All three candidates were operated with the same flowing bottom-hole-pressure constraint:
 
-$$
-\boxed{P_{wf}=300\text{ bar}}
-$$
+
+```math
+\boxed{P_{wf}=300\ \mathrm{bar}}
+```
+
 
 Using identical well-control conditions provides a consistent basis for comparing the reservoir and completion response of the three development alternatives.
 
@@ -1240,13 +1333,15 @@ These quantities were selected because no single production metric is sufficient
 
 For example, high oil production must be interpreted together with the associated water production:
 
-$$
+
+```math
 \text{oil response}
 \quad+\quad
 \text{water response}
 \quad\rightarrow\quad
 \text{more complete production assessment}
-$$
+```
+
 
 Similarly, `WBHP` provides a direct check that the candidate wells remained subject to the intended operating constraint, while `FPR` provides a broader measure of the reservoir-pressure response.
 
@@ -1260,13 +1355,15 @@ This distinction is important because numerical timestep sizes can differ betwee
 
 The comparison basis was therefore:
 
-$$
+
+```math
 \boxed{
 \text{common calendar date}
 \rightarrow
 \text{case-specific production and pressure response}
 }
-$$
+```
+
 
 This provides a consistent temporal basis for comparing BASE, A, B, and C.
 
@@ -1318,9 +1415,11 @@ The BASE, A, B, and C forecast cases were checked for successful completion.
 
 Each case reached the final scheduled forecast date:
 
-$$
+
+```math
 1\text{ October 2021}
-$$
+```
+
 
 The expected simulation outputs were also confirmed to be present, including the summary data required for production and pressure analysis.
 
@@ -1359,13 +1458,15 @@ After correcting the post-processing workflow, the principal forecast results we
 
 The five-year cumulative oil volumes were confirmed from:
 
-$$
+
+```math
 N_{p,\mathrm{forecast}}
 =
 FOPT_{\mathrm{2021}}
 -
 FOPT_{\mathrm{2016}}
-$$
+```
+
 
 giving:
 
@@ -1408,9 +1509,11 @@ The final forecast oil volumes were:
 
 The resulting ranking is:
 
-$$
+
+```math
 \boxed{A>C\gg B}
-$$
+```
+
 
 Candidate A produced approximately 43% more oil than Candidate C over the five-year screening period.
 
@@ -1465,9 +1568,11 @@ Candidate A begins with high water cut, reaches approximately 87.9%, and subsequ
 
 Candidate B remains almost entirely water producing:
 
-$$
+
+```math
 f_w \approx 99\%
-$$
+```
+
 
 throughout the forecast.
 
@@ -1519,9 +1624,11 @@ The combined production response confirms three distinct outcomes:
 
 The numerical forecast therefore supports the technical ranking:
 
-$$
+
+```math
 \boxed{A>C\gg B}
-$$
+```
+
 
 
 ---
@@ -1530,7 +1637,8 @@ $$
 
 The integrated reservoir screening and five-year forecast results provide the following technical ranking:
 
-$$
+
+```math
 \boxed{
 1.\ \text{Candidate A}
 \quad>\quad
@@ -1538,7 +1646,8 @@ $$
 \quad\gg\quad
 3.\ \text{Candidate B}
 }
-$$
+```
+
 
 ![Technical candidate ranking](figures/final/11_candidate_ranking.png)
 
@@ -1623,7 +1732,8 @@ Remaining oil should not be evaluated from oil saturation alone.
 
 A development opportunity must be interpreted using multiple sources of evidence, including:
 
-\[
+
+```math
 S_o,\quad
 PV,\quad
 k,\quad
@@ -1631,7 +1741,8 @@ P,\quad
 \Delta S_w,\quad
 \text{well spacing},\quad
 \text{completion quality}
-\]
+```
+
 
 ### Historical reservoir behavior matters
 
@@ -1655,7 +1766,8 @@ The final ranking was not based on a single map or a single production metric.
 
 It resulted from combining:
 
-\[
+
+```math
 \boxed{
 \text{reservoir description}
 +
@@ -1667,7 +1779,8 @@ It resulted from combining:
 +
 \text{QA/QC}
 }
-\]
+```
+
 
 ---
 
@@ -1717,9 +1830,11 @@ This project integrated reservoir surveillance, remaining-oil assessment, well-s
 
 The five-year technical ranking was:
 
-$$
+
+```math
 \boxed{A>C\gg B}
-$$
+```
+
 
 Candidate A delivered the highest cumulative oil production and the most favorable overall technical response.
 
