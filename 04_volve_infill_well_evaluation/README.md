@@ -73,43 +73,8 @@ This is not a commercial drill/no-drill sanction recommendation.
 
 ---
 
-# 1. Why this project?
 
-My main learning objective was to understand how the concepts studied in Petroleum Engineering are connected when working with a realistic reservoir model.
-
-Instead of asking only:
-
-> How do I run a reservoir simulator?
-
-I wanted to understand:
-
-> Why should a particular simulation be run, what reservoir evidence should support it, and how should its result influence an engineering decision?
-
-The project therefore focuses on the relationship:
-
-
-```math
-\boxed{
-\text{Reservoir understanding}
-+
-\text{data interpretation}
-+
-\text{numerical implementation}
-+
-\text{QA/QC}
-+
-\text{engineering judgement}
-}
-```
-
-
-A major goal was also to understand that a simulator is not a decision-maker.
-
-The reservoir engineer must first understand the physical problem, choose useful data and assumptions, inspect whether the numerical result is reasonable, and then interpret the result within the limitations of the study.
-
----
-
-# 2. Volve reservoir-model context
+# 1. Volve reservoir-model context and data understanding
 
 The project uses the late-life state of the public Volve black-oil reservoir model.
 
@@ -139,329 +104,8 @@ The actual development question is more complex:
 
 ---
 
-# 3. Development problem
 
-A late-life reservoir may still contain significant oil after years of production.
-
-However:
-
-
-```math
-\boxed{
-\text{remaining oil}
-\neq
-\text{automatically producible opportunity}
-}
-```
-
-
-A region may have high oil saturation but still be unattractive because:
-
-- the oil-filled volume is small;
-- permeability is poor;
-- the area is heavily water swept;
-- pressure support is weak;
-- relative oil mobility is poor;
-- another producer is already draining the region;
-- faults reduce useful connectivity;
-- the selected completion includes water-dominated layers.
-
-The project was therefore designed as an **infill-well screening problem** rather than simply a remaining-oil mapping exercise.
-
----
-
-# 4. Study objectives
-
-The main objectives were to:
-
-1. understand the reservoir geometry and fault framework;
-2. evaluate permeability heterogeneity;
-3. examine historical reservoir-pressure evolution;
-4. investigate historical water-saturation change;
-5. identify late-life remaining oil;
-6. understand the location of existing wells and previous drainage;
-7. screen out locations with insufficient spacing from existing completions or evidence of substantial historical water invasion;
-8. generate technically reasonable candidate locations;
-9. evaluate vertical completion intervals;
-10. compare three final candidates using common forecast assumptions;
-11. inspect oil rate, cumulative oil, water production, water cut, and pressure response;
-12. perform independent QA/QC before accepting the numerical results;
-13. rank the candidates and make a technically defensible recommendation.
-
----
-
-# 5. Engineering questions
-
-The workflow was driven by engineering questions rather than by software commands.
-
-### Reservoir condition
-
-**Where is oil still present?**
-
-**Where has the reservoir been strongly water swept?**
-
-**How has pressure changed during historical production?**
-
-**Where is good-quality permeable rock located?**
-
-### Remaining-oil opportunity
-
-**Does high oil saturation correspond to meaningful oil-filled pore volume?**
-
-**Is the remaining oil associated with sufficient permeability?**
-
-**Has the location already experienced strong water invasion?**
-
-**Is the target sufficiently separated from existing well completions?**
-
-### Completion design
-
-**Which vertical interval should be opened?**
-
-**Are some layers more water dominated than others?**
-
-**Can a poor layer be excluded to improve the quality of the tested completion?**
-
-### Forecast performance
-
-**How much oil can each candidate produce under the same screening control?**
-
-**How quickly does the oil rate decline?**
-
-**How much water is produced with the oil?**
-
-**How does water cut evolve?**
-
-**How strongly does each candidate affect reservoir pressure?**
-
-### Decision
-
-**Which candidate should be carried forward?**
-
-**Which candidate should not be advanced for further technical evaluation?**
-
-**What can and cannot be concluded from this deterministic experiment?**
-
----
-
-# 6. Reservoir-engineering concepts used
-
-The project applies several basic reservoir-engineering concepts directly to the Volve model.
-
-## 6.1 Saturation balance
-
-For an oil-water-gas system:
-
-
-```math
-S_o+S_w+S_g=1
-```
-
-
-where:
-
-- $S_o$ = oil saturation;
-- $S_w$ = water saturation;
-- $S_g$ = gas saturation.
-
-Late-life oil saturation helps identify where oil remains.
-
-However, a cell or small region with high $S_o$ does not necessarily contain a large development opportunity.
-
-That leads to the next concept.
-
----
-
-## 6.2 Oil-filled pore-volume screening
-
-A useful relative screening quantity is:
-
-
-```math
-M_{\mathrm{oil}} = \sum_i PV_i S_{o,i}
-```
-
-
-where:
-
-- $PV_i$ is pore volume in cell $i$;
-- $S_{o,i}$ is oil saturation.
-
-This is used in this project as a **relative candidate-screening metric**.
-
-It is not presented as a formal reserve estimate or stock-tank oil calculation.
-
-The concept is important because:
-
-
-```math
-\boxed{
-\text{high }S_o
-\text{ in a small volume}
-<
-\text{moderately high }S_o
-\text{ across a much larger useful volume}
-}
-```
-
-
-depending on reservoir quality and connectivity.
-
----
-
-## 6.3 Darcy-flow concept
-
-A simplified Darcy relationship is:
-
-
-```math
-q
-\propto
-\frac{kA\Delta P}{\mu L}
-```
-
-
-where:
-
-- $q$ = flow rate;
-- $k$ = permeability;
-- $A$ = flow area;
-- $\mu$ = viscosity;
-- $\Delta P$ = pressure difference;
-- $L$ = characteristic flow length.
-
-This explains why a high-oil-saturation location with poor permeability can perform worse than a more permeable target.
-
----
-
-## 6.4 Phase mobility
-
-For phase $\alpha$:
-
-
-```math
-\lambda_\alpha
-=
-\frac{k_{r,\alpha}}{\mu_\alpha}
-```
-
-
-where:
-
-- $k_{r,\alpha}$ = relative permeability;
-- $\mu_\alpha$ = phase viscosity.
-
-The relative mobility of oil and water helps determine which phase preferentially flows toward the well.
-
-This becomes particularly important in historically water-swept regions.
-
----
-
-## 6.5 Water cut
-
-Water cut is:
-
-
-```math
-f_w
-=
-\frac{q_w}{q_o+q_w}
-```
-
-
-where:
-
-- $q_w$ = water production rate;
-- $q_o$ = oil production rate.
-
-A candidate can contain remaining oil and still be technically unattractive if its production is overwhelmingly water dominated.
-
-Candidate B later provides a clear example of this.
-
----
-
-## 6.6 Pressure and drawdown
-
-A simple well-production concept is:
-
-
-```math
-\Delta P = P_r - P_{wf}
-```
-
-
-where:
-
-- $P_r$ = reservoir pressure;
-- $P_{wf}$ = flowing bottom-hole pressure.
-
-All final candidate forecasts use the same screening control:
-
-
-```math
-P_{wf}=300\ \mathrm{bar}
-```
-
-
-Using the same BHP constraint provides a consistent basis for comparing candidate behavior.
-
----
-
-## 6.7 Historical water-saturation change
-
-Water-saturation change was used as a simple indicator of previous water invasion:
-
-
-```math
-\Delta S_w =
-S_{w,\mathrm{late}} -
-S_{w,\mathrm{initial}}
-```
-
-
-A strongly positive $\Delta S_w$ indicates that the region has experienced greater water invasion.
-
-This is useful because late-life $S_o$ alone does not reveal the complete sweep history.
-
----
-
-## 6.8 Integrated screening principle
-
-The central screening principle developed in this project is:
-
-
-```math
-\boxed{
-\text{Infill quality}
-\neq
-f(S_o)\text{ only}
-}
-```
-
-
-Instead, an opportunity should be interpreted using multiple variables:
-
-
-```math
-\boxed{
-PV,\;
-S_o,\;
-k,\;
-P,\;
-\Delta S_w,\;
-k_r,\;
-\text{connectivity},\;
-\text{well spacing},\;
-\text{completion design}
-}
-```
-
-
-The remainder of the project tests this idea using the Volve reservoir model.
-
----
-
-# 7. Model and data understanding
+## 1.1 Model information used in this study
 
 Before selecting any infill location, the first task was to understand what information exists in the reservoir model and what each quantity can contribute to a development decision.
 
@@ -516,7 +160,327 @@ The purpose was to combine them rather than make a development decision from one
 
 ---
 
-# 8. Historical well and drainage context
+
+# 2. Engineering objective and development problem
+
+A late-life reservoir may still contain significant oil after years of production.
+
+However:
+
+
+```math
+\boxed{
+\text{remaining oil}
+\neq
+\text{automatically producible opportunity}
+}
+```
+
+
+A region may have high oil saturation but still be unattractive because:
+
+- the oil-filled volume is small;
+- permeability is poor;
+- the area is heavily water swept;
+- pressure support is weak;
+- relative oil mobility is poor;
+- another producer is already draining the region;
+- faults reduce useful connectivity;
+- the selected completion includes water-dominated layers.
+
+The project was therefore designed as an **infill-well screening problem** rather than simply a remaining-oil mapping exercise.
+
+---
+
+The main objectives were to:
+
+1. understand the reservoir geometry and fault framework;
+2. evaluate permeability heterogeneity;
+3. examine historical reservoir-pressure evolution;
+4. investigate historical water-saturation change;
+5. identify late-life remaining oil;
+6. understand the location of existing wells and previous drainage;
+7. screen out locations with insufficient spacing from existing completions or evidence of substantial historical water invasion;
+8. generate technically reasonable candidate locations;
+9. evaluate vertical completion intervals;
+10. compare three final candidates using common forecast assumptions;
+11. inspect oil rate, cumulative oil, water production, water cut, and pressure response;
+12. perform independent QA/QC before accepting the numerical results;
+13. rank the candidates and make a technically defensible recommendation.
+
+---
+
+The workflow was driven by engineering questions rather than by software commands.
+
+### Reservoir condition
+
+**Where is oil still present?**
+
+**Where has the reservoir been strongly water swept?**
+
+**How has pressure changed during historical production?**
+
+**Where is good-quality permeable rock located?**
+
+### Remaining-oil opportunity
+
+**Does high oil saturation correspond to meaningful oil-filled pore volume?**
+
+**Is the remaining oil associated with sufficient permeability?**
+
+**Has the location already experienced strong water invasion?**
+
+**Is the target sufficiently separated from existing well completions?**
+
+### Completion design
+
+**Which vertical interval should be opened?**
+
+**Are some layers more water dominated than others?**
+
+**Can a poor layer be excluded to improve the quality of the tested completion?**
+
+### Forecast performance
+
+**How much oil can each candidate produce under the same screening control?**
+
+**How quickly does the oil rate decline?**
+
+**How much water is produced with the oil?**
+
+**How does water cut evolve?**
+
+**How strongly does each candidate affect reservoir pressure?**
+
+### Decision
+
+**Which candidate should be carried forward?**
+
+**Which candidate should not be advanced for further technical evaluation?**
+
+**What can and cannot be concluded from this deterministic experiment?**
+
+---
+
+# 3. Reservoir-engineering concepts used
+
+The project applies several basic reservoir-engineering concepts directly to the Volve model.
+
+## 3.1 Saturation balance
+
+For an oil-water-gas system:
+
+
+```math
+S_o+S_w+S_g=1
+```
+
+
+where:
+
+- $S_o$ = oil saturation;
+- $S_w$ = water saturation;
+- $S_g$ = gas saturation.
+
+Late-life oil saturation helps identify where oil remains.
+
+However, a cell or small region with high $S_o$ does not necessarily contain a large development opportunity.
+
+That leads to the next concept.
+
+---
+
+## 3.2 Oil-filled pore-volume screening
+
+A useful relative screening quantity is:
+
+
+```math
+M_{\mathrm{oil}} = \sum_i PV_i S_{o,i}
+```
+
+
+where:
+
+- $PV_i$ is pore volume in cell $i$;
+- $S_{o,i}$ is oil saturation.
+
+This is used in this project as a **relative candidate-screening metric**.
+
+It is not presented as a formal reserve estimate or stock-tank oil calculation.
+
+The concept is important because:
+
+
+```math
+\boxed{
+\text{high }S_o
+\text{ in a small volume}
+<
+\text{moderately high }S_o
+\text{ across a much larger useful volume}
+}
+```
+
+
+depending on reservoir quality and connectivity.
+
+---
+
+## 3.3 Darcy-flow concept
+
+A simplified Darcy relationship is:
+
+
+```math
+q
+\propto
+\frac{kA\Delta P}{\mu L}
+```
+
+
+where:
+
+- $q$ = flow rate;
+- $k$ = permeability;
+- $A$ = flow area;
+- $\mu$ = viscosity;
+- $\Delta P$ = pressure difference;
+- $L$ = characteristic flow length.
+
+This explains why a high-oil-saturation location with poor permeability can perform worse than a more permeable target.
+
+---
+
+## 3.4 Phase mobility
+
+For phase $\alpha$:
+
+
+```math
+\lambda_\alpha
+=
+\frac{k_{r,\alpha}}{\mu_\alpha}
+```
+
+
+where:
+
+- $k_{r,\alpha}$ = relative permeability;
+- $\mu_\alpha$ = phase viscosity.
+
+The relative mobility of oil and water helps determine which phase preferentially flows toward the well.
+
+This becomes particularly important in historically water-swept regions.
+
+---
+
+## 3.5 Water cut
+
+Water cut is:
+
+
+```math
+f_w
+=
+\frac{q_w}{q_o+q_w}
+```
+
+
+where:
+
+- $q_w$ = water production rate;
+- $q_o$ = oil production rate.
+
+A candidate can contain remaining oil and still be technically unattractive if its production is overwhelmingly water dominated.
+
+Candidate B later provides a clear example of this.
+
+---
+
+## 3.6 Pressure and drawdown
+
+A simple well-production concept is:
+
+
+```math
+\Delta P = P_r - P_{wf}
+```
+
+
+where:
+
+- $P_r$ = reservoir pressure;
+- $P_{wf}$ = flowing bottom-hole pressure.
+
+All final candidate forecasts use the same screening control:
+
+
+```math
+P_{wf}=300\ \mathrm{bar}
+```
+
+
+Using the same BHP constraint provides a consistent basis for comparing candidate behavior.
+
+---
+
+## 3.7 Historical water-saturation change
+
+Water-saturation change was used as a simple indicator of previous water invasion:
+
+
+```math
+\Delta S_w =
+S_{w,\mathrm{late}} -
+S_{w,\mathrm{initial}}
+```
+
+
+A strongly positive $\Delta S_w$ indicates that the region has experienced greater water invasion.
+
+This is useful because late-life $S_o$ alone does not reveal the complete sweep history.
+
+---
+
+## 3.8 Integrated screening principle
+
+The central screening principle developed in this project is:
+
+
+```math
+\boxed{
+\text{Infill quality}
+\neq
+f(S_o)\text{ only}
+}
+```
+
+
+Instead, an opportunity should be interpreted using multiple variables:
+
+
+```math
+\boxed{
+PV,\;
+S_o,\;
+k,\;
+P,\;
+\Delta S_w,\;
+k_r,\;
+\text{connectivity},\;
+\text{well spacing},\;
+\text{completion design}
+}
+```
+
+
+The remainder of the project tests this idea using the Volve reservoir model.
+
+---
+
+
+# 4. Historical well and drainage context
 
 The historical Volve model contains an established system of wells that already influenced the reservoir before the late-life screening date.
 
@@ -584,7 +548,7 @@ They were used as relative screening indicators only.
 
 ---
 
-# 9. Reservoir surveillance
+# 5. Reservoir surveillance
 
 Reservoir surveillance was used to understand how the historical reservoir state developed before attempting any forecast.
 
@@ -598,7 +562,7 @@ The main questions were:
 
 ---
 
-## 9.1 Reservoir geometry and fault framework
+## 5.1 Reservoir geometry and fault framework
 
 The first step was to inspect the three-dimensional reservoir structure.
 
@@ -620,7 +584,7 @@ The geometry therefore provides the structural framework within which all later 
 
 ---
 
-## 9.2 Static permeability distribution
+## 5.2 Static permeability distribution
 
 Reservoir deliverability depends strongly on rock quality.
 
@@ -654,7 +618,7 @@ This becomes important later when comparing Candidates A and C.
 
 ---
 
-## 9.3 Historical pressure evolution
+## 5.3 Historical pressure evolution
 
 Pressure was extracted from the dynamic restart states to understand how the reservoir responded during historical production.
 
@@ -679,7 +643,7 @@ Pressure alone was not used to choose a candidate, but it helped characterize th
 
 ---
 
-## 9.4 Historical water sweep
+## 5.4 Historical water sweep
 
 Water-saturation change was used to identify regions affected by historical water invasion.
 
@@ -738,7 +702,7 @@ Both are useful for screening.
 
 ---
 
-# 10. Late-life remaining-oil assessment
+# 6. Late-life remaining-oil assessment
 
 After understanding structure, permeability, pressure, sweep, and well locations, the next question was:
 
@@ -778,7 +742,7 @@ This distinction became especially important for Candidate C, which contains ver
 
 ---
 
-# 11. Candidate generation and screening
+# 7. Candidate generation and screening
 
 Candidate generation was performed iteratively.
 
@@ -806,7 +770,7 @@ Several locations were evaluated and screened out before the final three candida
 
 ---
 
-## 11.1 Full-column screening
+## 7.1 Full-column screening
 
 The broader candidate-screening stage compared properties through the available vertical reservoir column at each location.
 
@@ -852,7 +816,7 @@ because the useful reservoir volume and permeability also differ strongly.
 
 ---
 
-## 11.2 Final candidate locations
+## 7.2 Final candidate locations
 
 After screening and well-spacing assessment, three candidates were selected for forecast evaluation:
 
@@ -932,7 +896,7 @@ These candidates intentionally represent different reservoir conditions rather t
 
 ---
 
-## 11.3 Vertical completion design
+## 7.3 Vertical completion design
 
 After selecting candidate locations, the next task was to decide which vertical layers should actually be opened.
 
@@ -986,7 +950,7 @@ This refinement demonstrates why completion design should be treated separately 
 
 ---
 
-## 11.4 Final completion-scale comparison
+## 7.4 Final completion-scale comparison
 
 After correcting the Candidate A interval to the actual tested K1–4 completion, the final completion-scale metrics were:
 
@@ -1051,7 +1015,7 @@ The pre-forecast expectation was:
 
 ---
 
-## 11.5 Pre-forecast decision logic
+## 7.5 Pre-forecast decision logic
 
 Before running the final forecast simulations, the candidate logic could therefore be summarized as:
 
@@ -1068,7 +1032,6 @@ A:
 ```
 
 
-
 ```math
 \boxed{
 B:
@@ -1077,7 +1040,6 @@ B:
 \text{unfavorable oil-phase mobility and deliverability}
 }
 ```
-
 
 
 ```math
@@ -1095,7 +1057,7 @@ The purpose of the forecast stage was then to determine whether these reservoir-
 
 ---
 
-# 12. Forecast design
+# 8. Forecast design and numerical implementation
 
 Following reservoir surveillance, remaining-oil assessment, existing-well spacing evaluation, and completion screening, the three selected candidates were evaluated using numerical reservoir simulation.
 
@@ -1109,7 +1071,7 @@ The study was not intended to optimize the operating strategy of each individual
 
 ---
 
-## 12.1 Forecast cases
+## 8.1 Forecast cases
 
 Four simulation cases were evaluated:
 
@@ -1141,7 +1103,7 @@ Consequently, the comparison isolates differences associated primarily with:
 
 ---
 
-## 12.2 Forecast period
+## 8.2 Forecast period
 
 The forecast interval was:
 
@@ -1159,7 +1121,7 @@ A common forecast duration ensures that cumulative and rate-based performance me
 
 ---
 
-## 12.3 Common well-control constraint
+## 8.3 Common well-control constraint
 
 Each candidate producer was operated under the same flowing bottom-hole-pressure constraint:
 
@@ -1179,7 +1141,7 @@ This controlled design supports a more direct comparison of reservoir deliverabi
 
 ---
 
-## 12.4 Forecast operating assumptions
+## 8.4 Forecast operating assumptions
 
 During the forecast period:
 
@@ -1207,55 +1169,20 @@ These effects would require a broader field-development study.
 
 ---
 
-## 12.5 Controlled-comparison principle
 
-The forecast design can be summarized as:
+## 8.5 Forecast-case construction
 
+The forecast study was implemented in **OPM Flow** using separate simulation decks generated from the same late-life Volve reservoir state.
 
-```math
-\boxed{
-\text{common reservoir state}
-+
-\text{common forecast duration}
-+
-\text{common BHP constraint}
-}
-```
-
-
-while changing:
-
-
-```math
-\boxed{
-\text{candidate location}
-+
-\text{completion interval}
-}
-```
-
-
-The resulting differences in oil, water, and pressure response are therefore used as technical screening evidence for the three selected development alternatives.
-
-
----
-
-# 13. Numerical implementation
-
-The forecast study was implemented using **OPM Flow** with the public Volve ECLIPSE-format black-oil model.
-
-The historical model was retained as the reference model, and independent forecast cases were generated for the BASE case and the three selected development alternatives.
-
-The final forecast input decks were:
+The final forecast cases were:
 
 - `P04_FORECAST_BASE.DATA`
 - `P04_FORECAST_A.DATA`
 - `P04_FORECAST_B.DATA`
 - `P04_FORECAST_C.DATA`
 
-Maintaining separate forecast decks allowed each development alternative to be evaluated independently while preserving the same historical reservoir state.
+The historical source model was preserved, while the forecast cases were generated independently so that each candidate could be evaluated under the same reservoir state and operating assumptions.
 
-## 13.1 Forecast-case construction
 
 A Python workflow was used to construct the forecast cases consistently.
 
@@ -1271,42 +1198,7 @@ The workflow defined:
 Using a common case-generation procedure reduced the possibility of introducing unintended differences between Candidates A, B, and C.
 
 
-## 13.2 Candidate-well and completion definitions
-
-The final forecast cases used the following candidate-well configurations:
-
-| Candidate | Well | I | J | Completion interval | Control |
-|---|---|---:|---:|---|---|
-| A | INF-A | 70 | 21 | K1–4 | BHP = 300 bar |
-| B | INF-B | 66 | 32 | K59–63 | BHP = 300 bar |
-| C | INF-C | 46 | 27 | K59–63 | BHP = 300 bar |
-
-The actual Candidate A forecast deck was independently checked and confirmed to contain the completion interval:
-
-
-```math
-\boxed{K1-4}
-```
-
-
-This verification was important because an earlier intermediate summary table still contained the superseded K1–5 screening interval.
-
-The final numerical results reported in this project therefore correspond to the verified K1–4 Candidate A completion.
-
-Candidates B and C were evaluated using K59–63.
-
-All three candidates were operated with the same flowing bottom-hole-pressure constraint:
-
-
-```math
-\boxed{P_{wf}=300\ \mathrm{bar}}
-```
-
-
-Using identical well-control conditions provides a consistent basis for comparing the reservoir and completion response of the three development alternatives.
-
-
-## 13.3 Summary quantities and result processing
+## 8.6 Summary quantities and result processing
 
 The forecast evaluation was based on field- and well-level summary quantities extracted from the OPM Flow simulation output.
 
@@ -1347,7 +1239,7 @@ Similarly, `WBHP` provides a direct check that the candidate wells remained subj
 
 ---
 
-## 13.4 Common report-date comparison
+## 8.7 Common report-date comparison
 
 The simulations were compared using common scheduled report dates rather than internal adaptive simulator timesteps.
 
@@ -1369,7 +1261,7 @@ This provides a consistent temporal basis for comparing BASE, A, B, and C.
 
 ---
 
-## 13.5 Post-processing workflow
+## 8.8 Post-processing workflow
 
 Python was used to extract the required summary vectors and organize the simulation results into structured datasets.
 
@@ -1392,7 +1284,7 @@ These verification procedures are documented in the following section.
 
 ---
 
-# 14. Numerical verification and quality assurance
+# 9. Numerical verification and quality assurance
 
 Numerical simulation results were not accepted solely because the simulations completed successfully.
 
@@ -1409,7 +1301,7 @@ This verification stage was essential because engineering conclusions depend not
 
 ---
 
-## 14.1 Simulation completion and output-integrity check
+## 9.1 Simulation completion and output-integrity check
 
 The BASE, A, B, and C forecast cases were checked for successful completion.
 
@@ -1427,7 +1319,7 @@ The completion check established that the candidate comparison was based on full
 
 ---
 
-## 14.2 Post-processing case-binding verification
+## 9.2 Post-processing case-binding verification
 
 An inconsistency was identified during the initial result-extraction stage.
 
@@ -1452,7 +1344,7 @@ This verification illustrates an important numerical-analysis principle:
 > **Post-processed results should be cross-checked against independent simulator outputs and physical expectations before they are used for engineering decisions.**
 
 
-## 14.3 Independent verification and consistency checks
+## 9.3 Independent verification and consistency checks
 
 After correcting the post-processing workflow, the principal forecast results were verified independently against the case-specific simulation summary data.
 
@@ -1489,11 +1381,11 @@ These checks provided the basis for accepting the final production comparison fo
 
 ---
 
-# 15. Forecast results and engineering interpretation
+# 10. Forecast results and engineering interpretation
 
 The forecast results show a clear separation between the three development alternatives.
 
-## 15.1 Five-year oil production
+## 10.1 Five-year oil production
 
 ![Five-year cumulative oil production](figures/final/07_forecast_cumulative_oil.png)
 
@@ -1523,7 +1415,7 @@ The cumulative production response therefore supports the pre-forecast interpret
 
 ---
 
-## 15.2 Oil-rate response
+## 10.2 Oil-rate response
 
 ![Candidate oil-production rate](figures/final/08_candidate_oil_rate.png)
 
@@ -1556,7 +1448,7 @@ This comparison illustrates why cumulative oil production and production-rate ev
 
 ---
 
-## 15.3 Water-cut response
+## 10.3 Water-cut response
 
 ![Candidate water-cut evolution](figures/final/09_candidate_water_cut.png)
 
@@ -1584,7 +1476,7 @@ The later reduction in Candidate A water cut is reported as observed in the well
 
 ---
 
-## 15.4 Reservoir-pressure response
+## 10.4 Reservoir-pressure response
 
 ![Field-average reservoir-pressure response](figures/final/10_field_pressure_response.png)
 
@@ -1602,7 +1494,7 @@ The BASE case shows pressure evolution despite the absence of active forecast pr
 
 ---
 
-## 15.5 Integrated production comparison
+## 10.5 Integrated production comparison
 
 The principal five-year forecast metrics are:
 
@@ -1622,18 +1514,12 @@ The combined production response confirms three distinct outcomes:
 
 **Candidate B** exhibits a water-dominated production response and provides a very limited oil contribution relative to the other alternatives.
 
-The numerical forecast therefore supports the technical ranking:
-
-
-```math
-\boxed{A>C\gg B}
-```
-
+The integrated production response provides the basis for the final technical ranking presented below.
 
 
 ---
 
-# 16. Technical ranking and recommendation
+## 10.6 Technical ranking and recommendation
 
 The integrated reservoir screening and five-year forecast results provide the following technical ranking:
 
@@ -1684,7 +1570,7 @@ It is therefore **not recommended for further technical evaluation under the tes
 
 ---
 
-## Engineering decision
+### Engineering decision
 
 The study supports the following conclusion:
 
@@ -1697,7 +1583,7 @@ It is not a commercial drilling sanction decision.
 
 ---
 
-# 17. Study limitations
+# 11. Study limitations
 
 This project is a deterministic technical screening study and should be interpreted within its defined scope.
 
@@ -1720,111 +1606,8 @@ Therefore, the recommendation from this study is limited to:
 
 ---
 
-# 18. Learning outcomes and skills demonstrated
 
-The main purpose of this project was to strengthen the connection between reservoir-engineering theory, realistic reservoir-model data, numerical simulation, and engineering decision-making.
-
-The project reinforced several important lessons:
-
-### Integrated reservoir interpretation
-
-Remaining oil should not be evaluated from oil saturation alone.
-
-A development opportunity must be interpreted using multiple sources of evidence, including:
-
-
-```math
-S_o,\quad
-PV,\quad
-k,\quad
-P,\quad
-\Delta S_w,\quad
-\text{well spacing},\quad
-\text{completion quality}
-```
-
-
-### Historical reservoir behavior matters
-
-Historical pressure evolution and water invasion provide important context for understanding late-life development opportunities.
-
-Candidate B demonstrated how substantial historical water invasion can translate into an unfavorable future production response.
-
-### Completion design matters
-
-Candidate A showed that the final completion interval can materially affect the quality of the tested opportunity.
-
-Excluding the more water-affected K5 layer produced a more defensible K1–4 completion design.
-
-### Numerical results require verification
-
-The project also reinforced the importance of checking simulation and post-processing results against independent numerical evidence before using them for engineering interpretation.
-
-### Engineering decision-making requires integration
-
-The final ranking was not based on a single map or a single production metric.
-
-It resulted from combining:
-
-
-```math
-\boxed{
-\text{reservoir description}
-+
-\text{historical surveillance}
-+
-\text{candidate screening}
-+
-\text{forecast response}
-+
-\text{QA/QC}
-}
-```
-
-
----
-
-## Technical skills applied
-
-The project involved practical use of:
-
-- reservoir surveillance and remaining-oil assessment;
-- pressure and saturation interpretation;
-- well-spacing and completion screening;
-- black-oil reservoir simulation;
-- OPM Flow;
-- ECLIPSE-format reservoir models;
-- ResInsight;
-- Python;
-- NumPy and Matplotlib;
-- Linux / WSL;
-- structured CSV-based result processing;
-- numerical QA/QC;
-- Git-based project organization;
-- technical visualization and engineering communication.
-
-
----
-
-# 19. Repository structure and reproducibility
-
-The repository separates documentation, figures, processed results, and Python workflows into dedicated directories.
-
-Key reproducibility files include:
-
-- `scripts/build_forecast_cases.py` — generates the BASE and candidate forecast cases;
-- `scripts/extract_final_forecast_results.py` — extracts and processes simulation results;
-- `scripts/build_final_forecast_figures.py` — generates the principal forecast figures;
-- `results/final_forecast_case_design.csv` — records the final candidate definitions;
-- `results/final_forecast_comparison.csv` — contains the principal forecast metrics;
-- `results/final_forecast_timeseries.csv` — contains the processed forecast time series.
-
-The historical source model was retained separately from the generated forecast cases.
-
-
----
-
-# 20. Final conclusion
+# 12. Final conclusion
 
 This project integrated reservoir surveillance, remaining-oil assessment, well-spacing evaluation, completion screening, and numerical forecasting to evaluate three late-life Volve infill opportunities.
 
