@@ -1,0 +1,5 @@
+case,well,I,J,K1,K2,control,bhp_bar,forecast_start,forecast_end,reason
+BASE,,,,,,No new infill well,,2016-10-01,2021-10-01,Reference case
+A,INF-A,70,21,1,4,BHP,300.0,2016-10-01,2021-10-01,Highest-quality screened opportunity; K5 excluded because of high late-life water saturation.
+B,INF-B,66,32,59,63,BHP,300.0,2016-10-01,2021-10-01,Water-swept comparison candidate with remaining oil and adequate local reservoir quality.
+C,INF-C,46,27,59,63,BHP,300.0,2016-10-01,2021-10-01,"High remaining oil saturation and minimal sweep, but smaller connected oil-volume opportunity."
